@@ -1,0 +1,744 @@
+
+/* ========================================
+   AMIGO DA VIZINHANÇA - ESTILO GERAL
+======================================== */
+
+:root {
+    --vermelho: #DE0606;
+    --azul: #007FD7;
+    --vermelho-escuro: #AC0202;
+    --cinza-claro: #E2E2E2;
+    --cinza-escuro: #3F3F3F;
+    --branco: #FFFFFF;
+    --fundo: #F5F7FB;
+    --texto-suave: #687386;
+
+    --sombra: 0 8px 25px rgba(30, 50, 80, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--fundo);
+    font-family: Arial, Helvetica, sans-serif;
+
+    overflow-x: hidden;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 22px;
+    flex-wrap: wrap;
+
+    padding: 16px 5%;
+
+    background-color: var(--azul);
+    color: var(--branco);
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--branco);
+    text-decoration: none;
+}
+
+.icone-logo {
+    font-size: 34px;
+}
+
+.logo strong {
+    display: block;
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.logo small {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+}
+
+.pesquisa {
+    flex: 1;
+    min-width: 220px;
+    max-width: 470px;
+}
+
+.rotulo-pesquisa {
+    display: block;
+    margin-bottom: 4px;
+
+    color: var(--branco);
+    font-size: 12px;
+}
+
+.campo-pesquisa {
+    display: flex;
+    width: 100%;
+}
+
+.campo-pesquisa input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 11px 13px;
+
+    border: none;
+    border-radius: 8px 0 0 8px;
+
+    outline: none;
+    font-size: 14px;
+}
+
+.campo-pesquisa input:focus {
+    box-shadow: inset 0 0 0 2px var(--vermelho);
+}
+
+.campo-pesquisa button {
+    padding: 11px 15px;
+
+    border: none;
+    border-radius: 0 8px 8px 0;
+
+    background-color: var(--vermelho);
+    color: var(--branco);
+
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.campo-pesquisa button:hover {
+    background-color: var(--vermelho-escuro);
+}
+
+.link-cabecalho {
+    color: var(--branco);
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: opacity 0.2s;
+}
+
+.link-cabecalho:hover {
+    opacity: 0.8;
+}
+
+
+/* ========================================
+   CONTEÚDO PRINCIPAL
+======================================== */
+
+.conteudo {
+    flex: 1;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 45px 0;
+}
+
+.grupo {
+    width: 100%;
+    text-align: center;
+}
+
+.titulo-grupo {
+    margin-bottom: 8px;
+
+    color: var(--azul);
+    font-size: 32px;
+}
+
+.subtitulo-grupo {
+    margin-bottom: 35px;
+
+    color: var(--texto-suave);
+    font-size: 16px;
+}
+
+
+
+/* ========================================
+   CARROSSEL ANIMADO
+======================================== */
+
+.carousel-stage {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    height: 540px;
+    margin: 0 auto;
+    perspective: 1200px;
+    overflow: hidden;
+}
+
+.cards-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* CARD BASE */
+
+.person-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 76%;
+    height: 500px;
+
+    display: flex;
+    align-items: center;
+    gap: 70px;
+
+    padding: 50px 55px;
+
+    background-color: var(--branco);
+    border: 2px solid var(--cinza-claro);
+    border-left: 6px solid var(--vermelho);
+    border-radius: 65px;
+
+    box-shadow: var(--sombra);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translate(-50%, -50%) scale(0.7);
+
+    transition:
+        transform 800ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 800ms ease,
+        filter 800ms ease,
+        visibility 800ms;
+
+    will-change: transform, opacity;
+}
+
+/* CARD CENTRAL */
+
+.person-card.active {
+    transform: translate(-50%, -50%) scale(1);
+
+    opacity: 1;
+    visibility: visible;
+
+    filter: blur(0);
+
+    z-index: 3;
+    pointer-events: auto;
+}
+
+/* CARD ESQUERDO */
+
+.person-card.prev {
+    transform:
+        translate(calc(-50% - 95%), -50%)
+        scale(0.82)
+        rotateY(10deg);
+
+    opacity: 0.45;
+    visibility: visible;
+
+    filter: blur(1px);
+
+    z-index: 2;
+    pointer-events: auto;
+
+    cursor: pointer;
+}
+
+/* CARD DIREITO */
+
+.person-card.next {
+    transform:
+        translate(calc(-50% + 95%), -50%)
+        scale(0.82)
+        rotateY(-10deg);
+
+    opacity: 0.45;
+    visibility: visible;
+
+    filter: blur(1px);
+
+    z-index: 2;
+    pointer-events: auto;
+
+    cursor: pointer;
+}
+
+/* HOVER */
+
+.person-card.prev:hover,
+.person-card.next:hover {
+    opacity: 0.85;
+    filter: blur(0);
+
+    box-shadow: 0 12px 30px rgba(0, 127, 215, 0.20);
+}
+
+/* CARDS ESCONDIDOS */
+
+.person-card.hidden {
+    transform: translate(-50%, -50%) scale(0.6);
+
+    opacity: 0;
+    visibility: hidden;
+
+    filter: blur(4px);
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+
+/* ========================================
+   FOTO DO INTEGRANTE
+======================================== */
+
+.photo-container {
+
+    width: 290px;
+    height: 290px;
+
+    min-width: 290px;
+
+    overflow: hidden;
+
+    border: 5px solid var(--azul);
+
+    border-radius: 50%;
+
+    background-color: #EDF4FC;
+}
+
+.photo-container img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ========================================
+   INFORMAÇÕES DO INTEGRANTE
+======================================== */
+
+.person-info {
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    text-align: left;
+}
+
+.person-info h2 {
+
+    color: var(--azul);
+
+    font-size: 32px;
+}
+
+.person-info p {
+
+    color: var(--cinza-escuro);
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.rodape {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+    padding: 30px 6%;
+
+    margin-top: 25px;
+
+    background-color: var(--azul);
+
+    color: var(--branco);
+}
+
+.rodape h3 {
+
+    margin-bottom: 8px;
+
+    color: var(--branco);
+
+    font-size: 17px;
+}
+
+.rodape p {
+
+    margin-bottom: 6px;
+
+    color: var(--branco);
+
+    font-size: 13px;
+
+    overflow-wrap: anywhere;
+}
+
+.rodape-marca strong {
+
+    display: block;
+
+    color: var(--branco);
+
+    font-size: 19px;
+}
+
+.rodape-marca p {
+
+    margin-top: 6px;
+}
+
+.direitos {
+
+    padding: 13px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+
+    background-color: var(--azul);
+
+    color: var(--branco);
+
+    text-align: center;
+
+    font-size: 12px;
+}
+
+
+/* ========================================
+   RESPONSIVIDADE - TABLETS
+======================================== */
+
+@media (max-width: 950px) {
+
+    .pesquisa {
+
+        order: 3;
+
+        flex-basis: 100%;
+
+        max-width: none;
+    }
+
+    .rodape {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 850px) {
+
+    .carousel-stage {
+
+        height: 450px;
+    }
+
+    .person-card {
+
+        height: 410px;
+
+        gap: 30px;
+
+        padding: 30px;
+
+        border-radius: 45px;
+    }
+
+    .photo-container {
+
+        width: 210px;
+        height: 210px;
+
+        min-width: 210px;
+    }
+
+    .person-info h2 {
+
+        font-size: 25px;
+    }
+
+    .person-info p {
+
+        font-size: 15px;
+    }
+
+}
+
+
+/* ========================================
+   RESPONSIVIDADE - CELULARES
+======================================== */
+
+@media (max-width: 600px) {
+
+    .cabecalho {
+
+        gap: 13px;
+
+        padding: 14px 4%;
+    }
+
+    .logo strong {
+
+        font-size: 17px;
+    }
+
+    .logo small {
+
+        font-size: 9px;
+    }
+
+    .icone-logo {
+
+        font-size: 29px;
+    }
+
+    .link-cabecalho {
+
+        font-size: 12px;
+    }
+
+    .conteudo {
+
+        padding: 35px 0;
+    }
+
+    .titulo-grupo {
+
+        font-size: 25px;
+    }
+
+    .subtitulo-grupo {
+
+        padding: 0 15px;
+
+        font-size: 14px;
+    }
+
+    .carousel-stage {
+
+        height: 480px;
+    }
+
+    .person-card {
+
+        width: 82%;
+
+        height: 450px;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 25px;
+
+        padding: 25px 15px;
+
+        border-radius: 35px;
+
+        border-left: 5px solid var(--vermelho);
+    }
+
+    .person-card.prev {
+
+        transform:
+            translate(calc(-50% - 100%), -50%)
+            scale(0.80)
+            rotateY(10deg);
+
+        opacity: 0.45;
+    }
+
+    .person-card.next {
+
+        transform:
+            translate(calc(-50% + 100%), -50%)
+            scale(0.80)
+            rotateY(-10deg);
+
+        opacity: 0.45;
+    }
+
+    .person-card.prev:hover,
+    .person-card.next:hover {
+
+        opacity: 0.85;
+    }
+
+    .photo-container {
+
+        width: 190px;
+        height: 190px;
+
+        min-width: 190px;
+    }
+
+    .person-info {
+
+        flex: initial;
+
+        text-align: center;
+
+        gap: 12px;
+    }
+
+    .person-info h2 {
+
+        font-size: 22px;
+    }
+
+    .person-info p {
+
+        font-size: 14px;
+    }
+
+    .rodape {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+        padding: 25px 6%;
+    }
+
+}
+
+
+/* ========================================
+   ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .person-card {
+
+        transition: none;
+    }
+
+}
+
+
+
+/* ========================================
+   INTERAÇÃO DOS CARDS LATERAIS
+======================================== */
+
+.person-card.prev,
+.person-card.next {
+    pointer-events: auto;
+    cursor: pointer;
+    visibility: visible;
+}
+
+.person-card.active {
+    pointer-events: auto;
+}
+
+.person-card.hidden {
+    pointer-events: none;
+    visibility: hidden;
+}
+/* ========================================
+   ÁREAS DE CLIQUE DO CARROSSEL
+======================================== */
+
+.carousel-control {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 12%;
+
+    border: none;
+
+    background: transparent;
+
+    z-index: 20;
+
+    cursor: pointer;
+}
+
+.prev-control {
+    left: 0;
+}
+
+.next-control {
+    right: 0;
+}
+
+
+
+.carousel-control:focus-visible {
+    outline: 3px solid var(--azul);
+    outline-offset: -4px;
+}
+
+@media (max-width: 600px) {
+    .carousel-control {
+        width: 9%;
+    }
+}

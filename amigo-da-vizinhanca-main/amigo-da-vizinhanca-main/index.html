@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amigo da Vizinhança</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="cabecalho">
+  <a href="index.html" class="logo">
+    <span class="icone-logo">🛒</span>
+    <span>
+            <strong>Amigo da<br>Vizinhança</strong>
+            <small>Tudo o que você precisa, pertinho de você!</small>
+        </span>
+  </a>
+
+  <section class="pesquisa" aria-label="Pesquisa de produtos">
+    <label for="busca" class="rotulo-pesquisa">Buscar produtos</label>
+    <div class="campo-pesquisa">
+      <input type="text" id="busca" placeholder="Buscar produtos...">
+      <button type="button" id="botaoPesquisar">Pesquisar</button>
+    </div>
+  </section>
+
+  <a href="/Login/Cadastro/login.html" class="link-cabecalho">♙ Entrar / Cadastrar</a>
+  <a href="/Localização/localizacao.html" class="link-cabecalho">📍 Localização</a>
+  <a href="carrinho.html" class="link-cabecalho">🛒 Carrinho</a>
+</header>
+
+<main class="conteudo">
+
+  <section class="banner">
+    <div class="texto-banner">
+      <h1>Bem-vindo ao<br>Amigo da Vizinhança!</h1>
+      <p>Qualidade, variedade e preços justos<br>para o seu dia a dia.</p>
+      <a href="#produtos" class="botao-banner">Ver nossos produtos →</a>
+    </div>
+
+    <div class="imagem-banner" aria-hidden="true">
+      🛒 🥬 🍎 🥖
+    </div>
+  </section>
+
+  <section class="categorias">
+    <h2>Categorias</h2>
+    <p class="subtitulo">Encontre o que você precisa em cada categoria.</p>
+
+    <div class="lista-categorias">
+      <button type="button" class="categoria" data-categoria="mercearia">
+        <span class="icone-categoria">🛒</span>
+        <strong>Mercearia</strong>
+        <small>Arroz, feijão e alimentos básicos</small>
+      </button>
+
+      <button type="button" class="categoria" data-categoria="bebidas">
+        <span class="icone-categoria">🥤</span>
+        <strong>Bebidas</strong>
+        <small>Refrigerantes e outras bebidas</small>
+      </button>
+
+      <button type="button" class="categoria" data-categoria="higiene">
+        <span class="icone-categoria">🧼</span>
+        <strong>Higiene</strong>
+        <small>Produtos de higiene pessoal</small>
+      </button>
+
+      <button type="button" class="categoria" data-categoria="limpeza">
+        <span class="icone-categoria">🧴</span>
+        <strong>Limpeza</strong>
+        <small>Produtos para limpeza doméstica</small>
+      </button>
+    </div>
+  </section>
+
+  <section class="produtos" id="produtos">
+    <div class="titulo-produtos">
+      <h2>Produtos em destaque</h2>
+      <p class="subtitulo">Os produtos para você e sua família.</p>
+    </div>
+
+    <p id="mensagemCarrinho" aria-live="polite"></p>
+
+    <div class="lista-produtos">
+
+      <article class="produto" data-categoria="mercearia">
+        <img src="imagens/arroz.jpg" alt="Pacote de arroz Camil de 5 kg" class="imagem-produto">
+        <div class="detalhes-produto">
+          <h3>Arroz 5kg</h3>
+          <p>Arroz Camil.</p>
+          <p class="preco">R$ 28,90</p>
+          <button type="button">Adicionar ao carrinho</button>
+        </div>
+      </article>
+
+      <article class="produto" data-categoria="mercearia">
+        <img src="imagens/feijao.jpg" alt="Pacote de feijão carioca de 1 kg" class="imagem-produto">
+        <div class="detalhes-produto">
+          <h3>Feijão 1kg</h3>
+          <p>Feijão carioca.</p>
+          <p class="preco">R$ 8,50</p>
+          <button type="button">Adicionar ao carrinho</button>
+        </div>
+      </article>
+
+      <article class="produto" data-categoria="bebidas">
+        <img src="imagens/refrigerante.jpg" alt="Garrafa de Coca-Cola de 2 litros" class="imagem-produto">
+        <div class="detalhes-produto">
+          <h3>Refrigerante 2L</h3>
+          <p>Coca-Cola.</p>
+          <p class="preco">R$ 9,99</p>
+          <button type="button">Adicionar ao carrinho</button>
+        </div>
+      </article>
+
+      <article class="produto" data-categoria="higiene">
+        <img src="imagens/sabonete.jpg" alt="Sabonete Dove" class="imagem-produto">
+        <div class="detalhes-produto">
+          <h3>Sabonete</h3>
+          <p>Dove.</p>
+          <p class="preco">R$ 3,50</p>
+          <button type="button">Adicionar ao carrinho</button>
+        </div>
+      </article>
+
+      <article class="produto" data-categoria="limpeza">
+        <img src="imagens/detergente.jpg" alt="Detergente Ypê" class="imagem-produto">
+        <div class="detalhes-produto">
+          <h3>Detergente</h3>
+          <p>Ypê.</p>
+          <p class="preco">R$ 2,99</p>
+          <button type="button">Adicionar ao carrinho</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <div class="rodape-marca">
+    <strong>🛒 Amigo da Vizinhança</strong>
+    <p>Sempre com você!</p>
+  </div>
+
+  <div>
+    <h3>Contato</h3>
+    <p>Entre em contato com nossa loja.</p>
+    <p>E-mail: contato@amigodavizinhanca.com.br</p>
+  </div>
+
+  <div>
+    <h3>Informações</h3>
+    <p>Atendimento ao cliente</p>
+    <p>Informações sobre a loja</p>
+  </div>
+
+<div class="rodape-grupo">
+        <h3>Conheça nossa equipe</h3>
+
+        <p>
+            <a href="/Sobre a galera/grupo.html">
+                👥 Conheça nosso grupo
+            </a>
+        </p>
+    </div>
+
+</footer>
+
+<p class="direitos">
+  © 2026 Amigo da Vizinhança. Todos os direitos reservados.
+</p>
+
+<script src="script.js"></script>
+
+</body>
+</html>

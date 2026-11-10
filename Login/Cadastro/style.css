@@ -1,0 +1,628 @@
+
+/* ========================================
+   AMIGO DA VIZINHANÇA
+   LOGIN E CADASTRO
+======================================== */
+
+:root {
+    --vermelho: #DE0606;
+    --vermelho-escuro: #AC0202;
+
+    --azul: #007FD7;
+    --azul-escuro: #0065AD;
+
+    --cinza-claro: #E2E2E2;
+    --cinza-escuro: #3F3F3F;
+
+    --branco: #FFFFFF;
+    --fundo: #F5F7FB;
+
+    --texto-suave: #687386;
+
+    --sombra: 0 15px 45px rgba(30, 50, 80, 0.13);
+}
+
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: var(--fundo);
+}
+
+
+
+
+/* ========================================
+   CONTAINER PRINCIPAL
+======================================== */
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+
+    min-height: 620px;
+
+    display: flex;
+
+    background: var(--branco);
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    box-shadow: var(--sombra);
+
+    border: 1px solid var(--cinza-claro);
+}
+
+
+/* ========================================
+   ÁREA DOS FORMULÁRIOS
+======================================== */
+
+.form-container {
+    width: 55%;
+
+    padding: 45px 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* ========================================
+   VOLTAR AO INÍCIO
+======================================== */
+
+.voltar-inicio {
+    display: inline-block;
+
+    width: fit-content;
+
+    margin-bottom: 25px;
+
+    color: var(--azul);
+
+    font-size: 13px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition: color 0.2s;
+}
+
+.voltar-inicio:hover {
+    color: var(--vermelho);
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.logo {
+    margin-bottom: 30px;
+}
+
+.logo h1 {
+    color: var(--azul);
+
+    font-size: 29px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--vermelho);
+}
+
+.logo p {
+    color: var(--texto-suave);
+
+    margin-top: 7px;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   FORMULÁRIOS
+======================================== */
+
+.form {
+    display: none;
+
+    animation: aparecer 0.4s ease;
+}
+
+.form.active {
+    display: block;
+}
+
+
+/* ANIMAÇÃO */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ========================================
+   TÍTULOS
+======================================== */
+
+.form h2 {
+    color: var(--azul);
+
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: var(--texto-suave);
+
+    font-size: 14px;
+
+    margin: 8px 0 25px;
+}
+
+
+/* ========================================
+   CAMPOS
+======================================== */
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    color: var(--cinza-escuro);
+
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid var(--cinza-claro);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: var(--branco);
+
+    color: var(--cinza-escuro);
+
+    font-size: 14px;
+
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.input-group input::placeholder {
+    color: #A5AAB4;
+}
+
+.input-group input:focus {
+    border-color: var(--azul);
+
+    box-shadow: 0 0 0 3px rgba(0, 127, 215, 0.12);
+}
+
+
+/* ========================================
+   OPÇÕES DO LOGIN
+======================================== */
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 12px;
+
+    margin-bottom: 23px;
+}
+
+.options label {
+    color: var(--texto-suave);
+}
+
+.options input {
+    accent-color: var(--azul);
+}
+
+.options a,
+.switch a {
+    color: var(--azul);
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: color 0.2s;
+}
+
+.options a:hover,
+.switch a:hover {
+    color: var(--vermelho);
+}
+
+
+/* ========================================
+   BOTÕES
+======================================== */
+
+button {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: var(--vermelho);
+
+    color: var(--branco);
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background 0.25s, transform 0.25s;
+}
+
+button:hover {
+    background: var(--vermelho-escuro);
+
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   ALTERNAR LOGIN E CADASTRO
+======================================== */
+
+.switch {
+    text-align: center;
+
+    color: var(--texto-suave);
+
+    font-size: 13px;
+
+    margin-top: 25px;
+}
+
+
+/* ========================================
+   PAINEL LATERAL
+======================================== */
+
+.welcome-panel {
+    width: 45%;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 45px;
+
+    text-align: center;
+
+    color: var(--branco);
+
+    background: linear-gradient(
+        145deg,
+        var(--azul),
+        var(--azul-escuro)
+    );
+
+    overflow: hidden;
+}
+
+
+/* DETALHE DECORATIVO */
+
+.welcome-panel::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border: 2px solid rgba(255,255,255,0.12);
+
+    border-radius: 50%;
+
+    top: -120px;
+    right: -100px;
+}
+
+.welcome-panel::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border: 2px solid rgba(255,255,255,0.10);
+
+    border-radius: 50%;
+
+    bottom: -100px;
+    left: -80px;
+}
+
+.welcome-panel > div {
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-panel h2 {
+    font-size: 32px;
+
+    line-height: 1.3;
+
+    margin-bottom: 20px;
+}
+
+.welcome-panel p {
+    line-height: 1.8;
+
+    font-size: 15px;
+
+    color: rgba(255,255,255,0.9);
+}
+
+
+/* ========================================
+   DETALHE VERMELHO
+======================================== */
+
+.welcome-panel > div::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 5px;
+
+    margin: 25px auto 0;
+
+    border-radius: 10px;
+
+    background: var(--vermelho);
+}
+
+
+/* ========================================
+   RESPONSIVIDADE - TABLETS
+======================================== */
+
+@media (max-width: 850px) {
+
+    .container {
+        max-width: 650px;
+    }
+
+    .form-container {
+        width: 60%;
+
+        padding: 35px;
+    }
+
+    .welcome-panel {
+        width: 40%;
+
+        padding: 25px;
+    }
+
+    .welcome-panel h2 {
+        font-size: 25px;
+    }
+
+    .welcome-panel p {
+        font-size: 13px;
+    }
+
+}
+
+
+/* ========================================
+   RESPONSIVIDADE - CELULARES
+======================================== */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 15px;
+        align-items: flex-start;
+    }
+
+    .container {
+        width: 100%;
+
+        min-height: auto;
+
+        flex-direction: column;
+
+        border-radius: 18px;
+    }
+
+    .form-container {
+        width: 100%;
+
+        padding: 30px 22px;
+    }
+
+    .welcome-panel {
+        width: 100%;
+
+        min-height: 190px;
+
+        padding: 30px 22px;
+    }
+
+    .welcome-panel h2 {
+        font-size: 23px;
+    }
+
+    .welcome-panel p {
+        font-size: 13px;
+    }
+
+    .logo {
+        margin-bottom: 25px;
+    }
+
+    .logo h1 {
+        font-size: 25px;
+    }
+
+    .form h2 {
+        font-size: 25px;
+    }
+
+}
+
+
+/* ========================================
+   TELAS MUITO PEQUENAS
+======================================== */
+
+@media (max-width: 380px) {
+
+    .form-container {
+        padding: 25px 17px;
+    }
+
+    .options {
+        flex-wrap: wrap;
+    }
+
+}
+
+
+/* ========================================
+   ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}
+
+
+/* ========================================
+   ACESSO COMO CONVIDADO
+======================================== */
+
+.guest-option {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 35px;
+
+}
+
+.guest-option span {
+
+    color: rgba(255, 255, 255, 0.85);
+
+    font-size: 13px;
+
+}
+
+.guest-button {
+
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    border: 2px solid var(--branco);
+
+    border-radius: 10px;
+
+    background: var(--branco);
+
+    color: var(--azul);
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+
+}
+
+.guest-button:hover {
+
+    background: var(--vermelho);
+
+    border-color: var(--vermelho);
+
+    color: var(--branco);
+
+    transform: translateY(-3px);
+
+}
+

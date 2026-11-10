@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Produto - Amigo da Vizinhança</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="cabecalho">
+  <a href="index.html" class="logo">
+    <span class="icone-logo">🛒</span>
+    <span>
+                <strong>Amigo da<br>Vizinhança</strong>
+                <small>Tudo o que você precisa, pertinho de você!</small>
+            </span>
+  </a>
+
+  <nav>
+    <a href="index.html" class="link-cabecalho">
+      ← Voltar para a loja
+    </a>
+    <a href="carrinho.html" class="link-cabecalho">
+      🛒 Carrinho
+    </a>
+  </nav>
+</header>
+
+<main class="conteudo">
+  <section class="detalhes-produto">
+
+    <div class="detalhe-imagem">
+      <img id="detalheImagem" src="" alt="Foto do produto">
+    </div>
+
+    <div class="detalhe-informacoes">
+      <p class="detalhe-categoria" id="detalheCategoria"></p>
+
+      <h1 id="detalheNome">Carregando produto...</h1>
+
+      <p class="detalhe-descricao" id="detalheDescricao"></p>
+
+      <p class="detalhe-preco" id="detalhePreco"></p>
+
+      <div class="seletor-quantidade">
+        <span>Quantidade:</span>
+
+        <button type="button" id="diminuirQuantidade">−</button>
+
+        <span id="quantidadeDetalhe">1</span>
+
+        <button type="button" id="aumentarQuantidade">+</button>
+      </div>
+
+      <button type="button" id="adicionarDetalhe" class="botao-adicionar-detalhe">
+        🛒 Adicionar ao carrinho
+      </button>
+
+      <p id="mensagemDetalhe"></p>
+
+      <a href="index.html" class="voltar-produtos">
+        Continuar comprando
+      </a>
+    </div>
+
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="rodape-marca">
+    <strong>🛒 Amigo da Vizinhança</strong>
+    <p>Sempre com você!</p>
+  </div>
+</footer>
+
+<p class="direitos">
+  © 2026 Amigo da Vizinhança. Todos os direitos reservados.
+</p>
+
+<script src="script.js"></script>
+</body>
+</html>

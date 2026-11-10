@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login e Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <main class="container">
+
+        <div class="form-container">
+
+            <div class="logo">
+                <h1>Amigo<span> da Vizinhança</span></h1>
+                <p>Bem-vindo! Acesse sua conta.</p>
+            </div>
+
+            <!-- LOGIN -->
+            <form id="loginForm" class="form active">
+
+                <h2>Entrar</h2>
+                <p class="subtitle">Entre com seus dados para continuar.</p>
+
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" id="loginEmail"
+                           placeholder="Digite seu e-mail" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Senha</label>
+                    <input type="password" id="loginPassword"
+                           placeholder="Digite sua senha" required>
+                </div>
+
+                <div class="options">
+                    <label>
+                        <input type="checkbox"> Lembrar de mim
+                    </label>
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit">Entrar</button>
+
+                <p class="switch">
+                    Não possui uma conta?
+                    <a href="#" id="showRegister">Cadastre-se</a>
+                </p>
+
+            </form>
+
+            <!-- CADASTRO -->
+            <form id="registerForm" class="form">
+
+                <h2>Criar conta</h2>
+                <p class="subtitle">Preencha os dados abaixo.</p>
+
+                <div class="input-group">
+                    <label>Nome completo</label>
+                    <input type="text" id="registerName"
+                           placeholder="Seu nome" required>
+                </div>
+
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" id="registerEmail"
+                           placeholder="Seu e-mail" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Senha</label>
+                    <input type="password" id="registerPassword"
+                           placeholder="Crie uma senha" required minlength="6">
+                </div>
+
+                <div class="input-group">
+                    <label>Confirmar senha</label>
+                    <input type="password" id="confirmPassword"
+                           placeholder="Confirme sua senha" required>
+                </div>
+
+                <button type="submit">Cadastrar</button>
+
+                <p class="switch">
+                    Já possui uma conta?
+                    <a href="#" id="showLogin">Fazer login</a>
+                </p>
+
+            </form>
+
+        </div>
+
+      
+<div class="welcome-panel">
+
+    <div>
+
+        <h2>Olá, seja bem-vindo ao Amigo da Vizinhança!</h2>
+
+        <p>
+            Tenha acesso a incríveis mercadorias para o seu bolso.
+            Faça login ou crie sua conta gratuitamente.
+        </p>
+
+        <div class="guest-option">
+
+            <span>Não quer entrar agora?</span>
+
+            <a href="/amigo-da-vizinhanca-main/amigo-da-vizinhanca-main/index.html" class="guest-button">
+                Continuar como convidado →
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
